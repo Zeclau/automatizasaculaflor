@@ -50,7 +50,7 @@ export function BrandHeader({
           {session && onToggleView && (
             <button
               onClick={onToggleView}
-              className="hidden sm:inline-flex items-center rounded-xl border border-border bg-secondary/60 px-3 py-2 text-xs font-medium hover:bg-secondary transition"
+              className="inline-flex items-center rounded-xl border border-border bg-secondary/60 px-3 py-2 text-xs font-medium hover:bg-secondary transition"
             >
               {view === "dashboard" ? "Subir nueva" : "Mis Portales"}
             </button>
