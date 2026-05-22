@@ -54,7 +54,7 @@ function Index() {
               />
             )}
             {view === "form" && (
-              <PropertyWizard session={session} onDone={() => setView("dashboard")} />
+              <PropertyWizard session={session} onDone={() => setView("dashboard")} onBack={() => setView("intake")} />
             )}
             {view === "dashboard" && (
               <Dashboard session={session} onCreate={() => setView("intake")} />

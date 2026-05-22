@@ -31,7 +31,7 @@ function propPrefix(agentId: string, propertyId: string) {
   return `agent-${agentId}/property-${propertyId}`;
 }
 
-export function PropertyWizard({ session, onDone }: { session: AgentSession; onDone: () => void }) {
+export function PropertyWizard({ session, onDone, onBack }: { session: AgentSession; onDone: () => void; onBack?: () => void }) {
   const [propertyId] = useState(() =>
     typeof crypto !== "undefined" && "randomUUID" in crypto
       ? crypto.randomUUID()
@@ -204,6 +204,14 @@ export function PropertyWizard({ session, onDone }: { session: AgentSession; onD
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="mb-6 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <ChevronLeft className="h-4 w-4" /> Volver
+        </button>
+      )}
       <div className="mb-6 text-center">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Sube los datos de esa propiedad que quieres digitalizar</h1>
         <p className="mt-2 text-sm text-muted-foreground">3 pasos rápidos. Todos los campos son opcionales.</p>
